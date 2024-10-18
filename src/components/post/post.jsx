@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-export default function Post({blog, btnHandeller}) {
+export default function Post({blog, conditon, btnHandeller,bookmarkHandller}) {
     const {id, cover,title,author_img,author, posted_date,reading_time, hashtags} = blog;
     
   return (
@@ -20,7 +20,9 @@ export default function Post({blog, btnHandeller}) {
         </div>
         <div className="flex gap-3 justify-center items-center">
           <p>{reading_time} min read</p>
-          <i className="fa-regular fa-clock"></i>
+          <button onClick={()=>bookmarkHandller({id})} className="">
+            {conditon?<i className="fa-regular fa-bookmark"></i>: 
+            <i class="fa-solid fa-bookmark"></i>}</button>
           
         </div>
        </div>
